@@ -1,0 +1,681 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>reveal.js - The HTML Presentation Framework</title>
+
+  <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+  <meta name="author" content="Hakim El Hattab">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"
+  />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <link rel="stylesheet" href="css/reveal.min.css">
+  <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+  <!-- For syntax highlighting -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if (window.location.search.match(/print-pdf/gi))
+    {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <div class="reveal">
+
+    <div class="slides">
+
+      <section>
+        <h1>Raspberry Pi</h1>
+        <h3>Hacking the Pi</h3>
+      </section>
+
+    <section>
+          <section>
+            <h2>Introductions</h2>
+          </section>
+
+          <section>
+            <h2>How we will work</h2>
+              <ul>
+                <li>Errors are opportunities!</li>
+                <li>Think and follow intuitions</li>
+                <li>Work together</li>
+                <li>Google Everything</li>
+                <li>Ask if above has failed</li>
+              </ul>
+          </section>
+
+          <section>
+            <h2>A quick word on Open Source</h2>
+          </section>
+
+  </section>
+      <!-- Installation & Configuration-->
+      <section>
+
+        <section>
+          <h2>Installation &amp; Configuration</h2>
+          <p>
+          Setting up our Pis 
+          </p>
+        </section>
+
+
+        <section>
+          <h2>Setting up</h2>
+          <ul>
+            <li>Raspberry Pi</li>
+            <li>usb hub</li>
+            <li>wifi dongle</li>
+            <li>keyboard &amp; mouse</li>
+            <li>power supply unit (PSU)</li>
+          </ul>
+        </section>
+
+
+        <section>
+          <h2>Exercise - BASH basics</h2>
+          <p>Work in Pairs</p>
+          <p>Question or errror. Intuition then Google</p>
+          <p>Gaols:</p>
+          <p>Navigate File System - Folders &amp; Files</p>
+          <p>Open and close files</p>
+          <ul>
+            <li>ls</li>
+            <li>pwd</li>
+            <li>mkdir</li>
+            <li>cd</li>
+            <li>less</li>
+            <li>nano</li>
+          </ul>
+          <p>http://www.raspberrypi.org/documentation/usage/terminal/README.md</p>
+          <p>http://tutorial.djangogirls.org/intro_to_command_line/README.html</p>
+          <p>Relative Vs Absolute paths?</p>
+        </section>
+
+        <section>
+          <h2>Questions</h2>
+          <ul>
+            <li>What is a computer?</li>
+            <li>What are the components of a computer?</li>
+            <li>What is an Operating System?</li>
+            <li>What is HardWare?</li>
+            <li>What connects the two?</li>
+            <li>What is a Raspberry Pi?</li>
+          </ul>
+        </section>
+
+        <section>
+            <h2>Raspberry Pi - HardWare</h2>
+            <img src="imgs/rpi-tech-spec.jpg" alt="raspberrypi-hw">
+        </section>
+
+        <section>
+          <h2>Exercise: Get HW info<h2>
+        <pre><code data-trim style="font-size: 20px; margin-top: 20px;">
+pi@raspberrypi ~ $ lsusb
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp.
+Bus 001 Device 004: ID 7392:7811 Edimax Technology Co., Ltd EW-7811Un 802.11n Wireless Adapter [Realtek RTL8188CUS]
+        </code></pre>
+        <p>How to Identify your keyboard?</p>
+        </section>
+
+        <section>
+          <h2>configuration</h2>
+          <p>Take a look at:</p>
+          <p><code>raspi-config</code></p>
+          <p>What does it do?</p>
+          <p>how does it relate to your usual system configuration tool?</p>
+        </section>
+
+          <section>
+              <h2>raspi-config on a Mac?</h2>
+            <img src="imgs/mac-sys-prefs.png" alt="sys-pref">
+          </section>
+
+        <section>
+          <h2>Wifi & Modules</h2>
+          <p>You say Driver, I say Module</p>
+          <p>Bridging HardWare and SoftWare</p>
+        </section>
+
+    </section>
+
+    <section>
+
+        <section data-background="#007777">
+          <h2>Exercise - Setting up WiFi</h2>
+          <p>Work in Pairs! Internet will be needed</p>
+          <ul>
+          <li>Plug in your dongle and identify it using lsusb</li>
+          <li>Find a way to list modules</li>
+      </ul>
+          <p>Questions</p>
+          <ul>
+              <li>Its detected, but how does the OS know what to do with it?</li>
+              <li>It doesn't work? Given the above what can we conclude?</li>
+      </ul>
+        </section>
+
+        <section data-background="#007777">
+          <h2>Exercise: Get list of networks</h2>
+
+                  <pre><code data-trim contenteditable style="font-size: 25px; margin-top: 20px;">
+pi@raspberrypi ~ $ sudo iwlist wlan0 scan 
+                  </code></pre>
+                  <p>Too much information! Lets filter it.</p>
+                  <pre><code data-trim contenteditable style="font-size: 20px; margin-top: 18px;">
+pi@raspberrypi ~ $ sudo iwlist wlan0 scan | grep ESSID | grep City
+                    ESSID:"city-lit-wireless"
+                  </code></pre>
+        </section>
+
+        <section data-background="#007777">
+          <h2>Authenticate</h2>
+                  <pre><code data-trim style="font-size: 25px; margin-top: 20px;">
+$ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+                  </code></pre>
+                  <p>Your <code>/etc/wpa_supplicant/wpa_supplicant.conf</code> should look like this:</p>
+
+                  <pre><code data-trim contenteditable style="font-size: 25px;">
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+      ssid="city-lit-wireless"
+      psk="5e5b7c296b58757c692"
+}
+                  </code></pre>
+                  <p>Restart your Pi if it doesn't work</p>
+        </section>
+
+        <section data-background="#007777">
+            <h2>Check for Success</h2>
+            <p>Ideas?</p>
+            <ul>
+                <li class="fragment">flashing light</li>
+                <li class="fragment">Check in browser <code>startx</code></li>
+                <li class="fragment"><code>ifconfig wlan0</code></li>
+                <li class="fragment"><code>ping www.google.com</code></li>
+            </ul>
+
+        </section>
+
+      </section>
+
+      <section>
+
+          <section data-background="#8c4738">
+              <h2>Operating Systems</h2>
+               <ol>
+                  <li>System Information</li>
+                  <li>Process Information</li>
+                  <li>Device Abstraction</li>
+              </ol>
+          </section>
+
+          <section>
+              <h2>Layers of Abstraction</h2>
+              <p>
+            <img width="600" height="500" src="imgs/Kernel_Layout.svg" alt="kernel_layout">
+              </p>
+          </section>
+
+          <section data-background="#8c4738">
+              <h3>Operating Systems</h3>
+              <h2>Getting info</h2>
+        <pre><code data-trim contenteditable style="font-size: 20px;">
+uname -a
+head /etc/issue
+cat /proc/partitions
+grep MemTotal /proc/meminfo
+grep "model name" /proc/cpuinfo
+hwinfo
+lsmod
+      </code></pre>
+              </ul>
+          </section>
+
+          <section data-background="#8c4738">
+              <h2>Getting OS info</h2>
+              <p>Equivalent on Mac?</p>
+              <p>Equivalent on Windows?</p>
+          </section>
+
+          <section data-background="#8c4738">
+              <h2>Getting OS info</h2>
+            <img src="imgs/mac-about-this.png" alt="about-this-mac">
+          </section>
+
+
+          <section data-background="#8c4738">
+              <h2>Process management Linux</h2>
+              <p>Try these:</p>
+              <ul>
+                  <li><code>top</code></li>
+                  <li><code>htop</code></li>
+              </ul>
+          </section>
+
+          <section data-background="#8c4738">
+              <h2>Process management Mac</h2>
+            <img src="imgs/mac-activity-monitor.png">
+          </section>
+
+          <section data-background="#8c4738">
+              <h2>Resources</h2>
+              <ul>
+                <li>Kernel_(operating_system) - Wikipedia</li>
+              </ul>
+          </section>
+      </section>
+
+      <section>
+
+          <section>
+            <h2>BASH</h2>
+            <p>The command line UI</p>
+          </section>
+
+          <section>
+            <h2>BASH</h2>
+            <p>http://cli.learncodethehardway.org/book/</p>
+            <p>http://www.raspberrypi.org/documentation/usage/terminal/README.md</p>
+            <ol>
+                <li>Finding Help</li>
+                <li>What's your computer name?</li>
+                <li>Paths, Folders, Directories</li>
+                <li>Directories: Make, Change, List, Remove</li>
+                <li>Files: Making, copy, move, view, finding</li>
+                <li>Pipes and Redirection</li>
+                <li>Environment Variables</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>BASH Tips</h2>
+            <ol>
+                <li><code>history</code></li>
+                <li>Always Be TABing!!</li>
+                <li>Ctl-r</li>
+                <li>up arrows</li>
+                <li>Ctl-a Ctl-e   Jump to start/end of line</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Aside</h2>
+            <p>Type this:</p>
+        <pre><code data-trim >
+pi@raspberrypi ~ $ python
+Python 2.7.3 (default, Mar 18 2014, 05:13:23)
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import os
+>>> os.environ
+{'LANG': 'en_GB.UTF-8', 'TERM': 'xterm-256color', 
+'SHELL': '/bin/bash', 
+'SSH_TTY': '/dev/pts/0', 
+'PWD': '/home/pi', 
+'LOGNAME': 'pi', 'USER': 'pi', 
+'PATH': '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games', 
+'MAIL': '/var/mail/pi', 
+'HOME': '/home/pi', }
+>>>
+        </code></pre>
+        <p>exit and type this:</p>
+        <pre><code data-trim >
+env
+        </code></pre>
+            
+            <p>Which previous slide does this illustrate?</p>
+          </section>
+
+
+          <section>
+            <h2>BASH Vs GUI</h2>
+            <p>Lets explore the Desktop</p>
+            <p>
+              <code>startx</code>
+            </p>
+          </section>
+
+          <section>
+            <h3>BASH Vs GUI</h3>
+            <h2>What are the differences?</h2>
+              <ul>
+                <li>raspi-config Vs config files</li>
+                <li>Which do you prefer?</li>
+                <li>How long does it take to learn a UI?</li>
+              </ul>
+          </section>
+
+    </section>
+
+    <section>
+
+        <section data-background="#4d7e65">
+              <h3>Demo programs</h3>
+              <p>Follow instructions here:</p>
+        <pre><code data-trim contenteditable style="font-size: 30px;">
+pi@raspberrypi /opt/vc/src/hello_pi $ less README
+        </code></pre>
+        <p>and:</p>
+              <p>http://www.raspberrypi.org/documentation/usage/demos/README.md</p>
+        <pre><code data-trim contenteditable style="font-size: 30px;">
+cd /opt/vc/src/hello_pi
+./rebuild.sh
+        </code></pre>
+          </section>
+
+        <section data-background="#4d7e65">
+              <h3>Exercise - Entering the Matrix</h3>
+        <pre><code data-trim contenteditable>
+pi@raspberrypi /opt/vc/src/hello_pi/hello_world $ cd
+pi@raspberrypi ~ $ cd /opt/vc/src/hello_pi/hello_world
+pi@raspberrypi /opt/vc/src/hello_pi/hello_world $ od -c world.c
+0000000   /   /       C   l   a   s   s   i   c       H   e   l   l   o
+0000020       W   o   r   l   d  \n   /   /       G   R   E   G  \n  \n
+0000040   #   i   n   c   l   u   d   e       <   s   t   d   i   o   .
+0000060   h   >  \n  \n   i   n   t       m   a   i   n   (   v   o   i
+0000100   d   )  \n   {  \n               p   r   i   n   t   f   (   "
+0000120   H   e   l   l   o       w   o   r   l   d   !   \   n   "   )
+0000140   ;  \n               r   e   t   u   r   n       0   ;  \n   }
+0000160  \n
+0000161
+pi@raspberrypi /opt/vc/src/hello_pi/hello_world $
+        </code></pre>
+          </section>
+
+    </section>
+
+    <section>
+
+        <section data-background="#4d7e65">
+              <h3>Scratch</h3>
+              <p class="fragment">A pedagogical tool for programming</p>
+              <p class="fragment">http://scratch.mit.edu/</p>
+          </section>
+
+        <section data-background="#4d7e65">
+              <h3>Scratch - Exercise</h3>
+              <p>http://www.raspberrypi.org/documentation/usage/scratch/README.md</p>
+              <p>find a project you like on:</p>
+              <p>http://scratch.mit.edu/</p>
+              <p>Create your own</p>
+          </section>
+
+        <section data-background="#4d7e65">
+              <h3>Scratch - Exercise</h3>
+        <pre><code data-trim contenteditable>
+startx
+        </code></pre>
+              <p>Launch Scratch</p>
+              <p>Get the sprite to go round in a squre!</p>
+          </section>
+
+        <section data-background="#4d7e65">
+              <h3>Scratch - Exercise</h3>
+              <p>A Solution</p>
+                <p>
+                <img src="imgs/scratch-square.png" alt="scratch square">
+                </p>
+          </section>
+
+        <section data-background="#4d7e65">
+              <h3>Scratch - Exercise</h3>
+              <p>A better Solution?</p>
+                <p>
+                <img src="imgs/scratch-square-loops.png" alt="scratch square">
+                </p>
+          </section>
+        
+    </section>
+
+      <section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
+          <section>
+            <h2>Intro to Python</h2>
+            <p>http://python-intro.readthedocs.org/en/latest/index.html
+            </p>
+        </section>
+
+          <section>
+            <h2>Connections?</h2>
+            <ul>
+                <li>Abstractions in Python &amp; OS</li>
+                <li>BASH commands &amp; calling python functions</li>
+                <li>Processes &amp; turtle window closing</li>
+            </ul>
+        </section>
+
+      </section>
+
+      <section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
+
+          <section>
+            <h2>Raspberry Pi Electronics</h2>
+            <p>Controlling electronics</p>
+          </section>
+
+          <section>
+            <h2>Raspberry Pi Electronics</h2>
+            <p>http://www.raspberrypi.org/documentation/usage/gpio/README.md</p>
+            <img src="imgs/gpio-pins.jpg" alt="gpio pins">
+          </section>
+
+          <section>
+            <h2>Raspberry Pi Electronics</h2>
+            <img src="imgs/basic-gpio-layout.png" alt="gpio layout">
+          </section>
+
+          <section>
+            <h2>BreadBoard</h2>
+            <ul>
+                <li>Columns are linked</li>
+                <li>Rows are linked</li>
+            </ul>
+            <p>
+            <img src="imgs/Breadboard_scheme.svg.png" alt="gpio layout">
+            </p>
+          </section>
+
+          <section>
+            <h2>BPIO - Making a light shine</h2>
+            <img src="imgs/basic-gpio-layout.png" alt="gpio layout">
+            <ul>
+                <li>wire: 1 Rpi (3.3v) <-> row 26 </li>
+                <li>LED: row 26 + (longer leg)  <-> row 25 - (shorter leg)</li>
+                <li>resistor: row 25 <-> - col </li>
+                <li>wire: - col <-> 6 Rpi (ground)</li>
+            </ul>
+        </section>
+
+          <section>
+            <h2>Python to control BPIO</h2>
+            <p>switch 1 Rpi (3.3v) to 7</p>
+
+        <pre><code data-trim contenteditable>
+pi@raspberrypi ~ $ sudo ipython
+In [1]: import RPi.GPIO as GPIO 
+In [2]: GPIO.setmode(gpio.BOARD)
+In [3]: GPIO.setup(7, gpio.OUT)
+In [4]: GPIO.output(7, True)
+In [5]: GPIO.output(7, False)
+        </code></pre>
+        </section>
+
+          <section>
+            <h2>Blinking LED</h2>
+
+        <pre><code data-trim contenteditable>
+pi@raspberrypi ~ $ sudo ipython
+In [1]: import RPi.GPIO as GPIO 
+In [2]: from time import sleep
+In [3]: GPIO.setmode(GPIO.BOARD)
+In [4]: GPIO.setup(7, GPIO.OUT)
+In [5]: for _ in range(5):
+   ....:     GPIO.output(7, True)
+   ....:     sleep(1)
+   ....:     GPIO.output(7, False)
+   ....:     sleep(1)
+   ....:
+        </code></pre>
+        </section>
+
+        <section>
+            <h2>Imagine the possibilities</h2>
+            <p>Robotics</p>
+            <p>Home automation</p>
+            <p>Time lapse photography</p>
+            <p>Google for amazing uses!!</p>
+        </section>
+
+      </section>
+
+    <section>
+        <h2>The End</h2>
+        <p>Thank You all</p>
+        <p>Feedback forms please</p>
+        <p>Docs will be published</p>
+        <p>Leave me emails to be notified</p>
+    </section>
+
+        <!--
+        <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
+        <section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png"
+        data-background-repeat="repeat" data-background-size="100px">
+        -->
+
+    <!--
+      <section>
+        <section id="fragments">
+          <h2>Fragmented Views</h2>
+          <p>Hit the next arrow...</p>
+          <p class="fragment">... to step through ...</p>
+          <ol>
+            <li class="fragment"><code>any type</code>
+            </li>
+            <li class="fragment"><em>of view</em>
+            </li>
+            <li class="fragment"><strong>fragments</strong>
+            </li>
+          </ol>
+
+          <aside class="notes">
+            This slide has fragments which are also stepped through in the notes window.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Fragment Styles</h2>
+          <p>There's a few styles of fragments, like:</p>
+          <p class="fragment grow">grow</p>
+          <p class="fragment shrink">shrink</p>
+          <p class="fragment roll-in">roll-in</p>
+          <p class="fragment fade-out">fade-out</p>
+          <p class="fragment highlight-red">highlight-red</p>
+          <p class="fragment highlight-green">highlight-green</p>
+          <p class="fragment highlight-blue">highlight-blue</p>
+          <p class="fragment current-visible">current-visible</p>
+          <p class="fragment highlight-current-blue">highlight-current-blue</p>
+        </section>
+      </section>
+      -->
+
+
+    </div>
+
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.min.js"></script>
+
+  <script>
+    // Full list of configuration options available here:
+     // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize(
+    {
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+      transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+      // Parallax scrolling
+      // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+      // parallaxBackgroundSize: '2100px 900px',
+
+      // Optional libraries used to extend on reveal.js
+      dependencies: [
+      {
+        src: 'lib/js/classList.js',
+        condition: function()
+        {
+          return !document.body.classList;
+        }
+      },
+      {
+        src: 'plugin/markdown/marked.js',
+        condition: function()
+        {
+          return !!document.querySelector('[data-markdown]');
+        }
+      },
+      {
+        src: 'plugin/markdown/markdown.js',
+        condition: function()
+        {
+          return !!document.querySelector('[data-markdown]');
+        }
+      },
+      {
+        src: 'plugin/highlight/highlight.js',
+        async: true,
+        callback: function()
+        {
+          hljs.initHighlightingOnLoad();
+        }
+      },
+      {
+        src: 'plugin/zoom-js/zoom.js',
+        async: true,
+        condition: function()
+        {
+          return !!document.body.classList;
+        }
+      },
+      {
+        src: 'plugin/notes/notes.js',
+        async: true,
+        condition: function()
+        {
+          return !!document.body.classList;
+        }
+      }]
+    });
+  </script>
+
+</body>
+
+</html>
