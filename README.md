@@ -1,15 +1,24 @@
 Introduction to Raspberry Pi
 ============================
 
+Teaching materials for an introductory class.
 
-To run locally:
+Two source materials:
+
+    * Slides - Uses reveal.js; in slides/
+    * Web docs - Sphinx built; all other folder & files.
+
+
+To run the sphinx docs locally:
 
     make html
     cd build/html
     python -m SimpleHTTPServer
 
 
-Alternatively you can just open:
+Alternatively open in browser:
     build/html/index.html
 
-in your browser.
+
+For the slides open in browser:
+    slides/index.html
