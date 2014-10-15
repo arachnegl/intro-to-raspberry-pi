@@ -1,0 +1,4 @@
+Hardware
+********
+
+Something about hardware.
