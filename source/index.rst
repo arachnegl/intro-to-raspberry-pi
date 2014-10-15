@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to raspberry-pi's documentation!
-========================================
+Introduction to Raspberry Pi
+============================
 
 Here we go.
 
