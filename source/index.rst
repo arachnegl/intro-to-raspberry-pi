@@ -6,8 +6,6 @@
 Introduction to Raspberry Pi
 ============================
 
-Here we go.
-
 Contents:
 
 .. toctree::
@@ -21,13 +19,3 @@ Contents:
     python
     electronics
     resources
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
