@@ -17,8 +17,10 @@ To run the sphinx docs locally:
 
 
 Alternatively open in browser:
+
     build/html/index.html
 
 
 For the slides open in browser:
+
     slides/index.html
