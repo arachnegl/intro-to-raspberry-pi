@@ -20,6 +20,7 @@ Contents:
     scratch
     python
     electronics
+    resources
 
 
 
