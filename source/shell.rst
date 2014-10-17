@@ -217,6 +217,7 @@ Recap
 =====
 
 Using the command line, we have seen:
+
 * How to locate ourselves and navigate the file system using `ls`, `pwd`, `cd`, `tree`
 * Create and remove folders and files using `mkdir`, `deldir`, `touch`, `rm`
 * Print stuff to the line using `echo`, `cat`
