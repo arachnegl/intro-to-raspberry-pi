@@ -13,8 +13,9 @@ Contents:
 
     introduction
     hardware
-    operating_system
     shell
+    operating_system
+    files
     scratch
     python
     electronics

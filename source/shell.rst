@@ -1,5 +1,5 @@
-The Command Line
-****************
+Shell 1 - Navigation
+********************
 
 Everyone is used to the current visual metaphor of interacting with a computer. Images
 represent things such as files, programs, and folders. Windows act as
