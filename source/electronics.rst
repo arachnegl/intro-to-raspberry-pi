@@ -75,9 +75,8 @@ Exercise
 
 Put the above into a script and run it.
 
-
 Resources
 =========
 
-* `Source for some of the material <http://www.raspberrypi.org/documentation/usage/gpio/README.md/>`_
-* `Quick Reaction Game <http://www.raspberrypi.org/learning/quick-reaction-game//>`_
+* `Source for some of the material <http://www.raspberrypi.org/documentation/usage/gpio/README.md>`_
+* `Quick Reaction Game <http://www.raspberrypi.org/learning/quick-reaction-game>`_
