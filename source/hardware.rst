@@ -1,5 +1,5 @@
-Hardware
-********
+Hardware, Configuration, Start up
+*********************************
 
 Components
 ==========
