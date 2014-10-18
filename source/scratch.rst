@@ -1,5 +1,5 @@
-Scratch - Programming
-*********************
+Scratch
+*******
 
 A pedagogical tool for introducing programming.
 
