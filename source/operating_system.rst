@@ -1,9 +1,9 @@
 Operating Systems
 *****************
 
-Here we will explore some of the concepts that an operating system provides.
+Lets explore some of the concepts that an operating system provides.
 
-In particular we will focus on OSs abstractions over:
+We will focus on OSs abstractions over:
 
 * Hardware - Both computer and devices
 * Processes - An environment for processes to live and die in
@@ -107,6 +107,13 @@ Process managment on Mac OSX:
 
 .. image:: _static/images/about-this-mac.png
 
+
+Exercise
+========
+
+Using `top` or `htop`, identify the process that is running the current terminal.
+
+How do you kill it? Try using your intution combined with documentation, then Google.
 
 Networking
 ==========

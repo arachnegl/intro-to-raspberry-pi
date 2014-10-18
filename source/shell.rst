@@ -1,36 +1,15 @@
-Shell 1 - Navigation
-********************
+Navigation
+**********
 
-Everyone is used to the current visual metaphor of interacting with a computer. Images
+The GUI is a visual metaphor for interacting with a computer. Images
 represent things such as files, programs, and folders. Windows act as
 containers where programs live.
 
-The command line is another way of doing much the same. Instead of using
-a mouse and clicking, we type commands. It can do everything a Graphical User
-Interface (GUI) can do but more.
+The command line or shell is another way of doing the same. Instead of using
+a mouse and clicking, we type commands. In many use cases it is far more powerfull than a GUI.
 
-We are going to introduce the basic of this programming language. As we
-progress always keep in mind what the equivalent way of doing things would be
-in the GUI.
-
-
-Start up
-========
-
-start up message::
-
-    Linux raspberrypi 3.12.22+ #691 PREEMPT Wed Jun 18 18:29:58 BST 2014 armv6l
-
-    The programs included with the Debian GNU/Linux system are free software;
-    the exact distribution terms for each program are described in the
-    individual files in /usr/share/doc/*/copyright.
-
-    Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
-    permitted by applicable law.
-    Last login: Tue Oct 14 18:43:45 2014 from 192.168.0.6
-    pi@raspberrypi ~ $
-
-The `pi@raspberrypi ~ $` is called a prompt. You type commands after the '$'.
+We are going to introduce the basics of this programming language.
+Keep in mind the equivalent GUI way of doing things.
 
 
 `echo Hi` - Print to screen
@@ -88,6 +67,8 @@ Note navigation gets easier if you keep a mental image in your head of where you
 
 Note also that the prompt tells you where you are relative to the `home` directory. Your home directory is your users' home. An absolute location is the location of a file or folder in terms of the root of the computer's file system.
 
+
+Note: We will drop the `pi@raspberrypi` part of the prompt from now on.
 
 Building a file system
 ======================
@@ -157,11 +138,11 @@ The end result should look like this::
         └── albums.txt
 
 
-Installing software & the `tree` program
-========================================
+Installing `tree`
+=================
 
-`cd` followed by `ls` to explore directories quickly becomes repetitive.
-`tree` is a program that gives us a snapshot of a directory and its contents.
+`cd` followed by `ls` to explore directories becomes tedious.
+`tree` is a program that shows a directory and its contents.
 
 First we need to install it. Typically you are used to browsing for software, downloading it and then clicking on a package to install it. You may also have to answer some questions.
 
@@ -181,8 +162,8 @@ Now we can take a look at our creation::
 
 
 
-Grouping commands in a file
-===========================
+executing a file
+================
 
 So far we have been programming interactively, executing one command at a time. It would be useful to group commands so that they can be executed together. It would also be useful so as not to forget the useful sequence of commands.
 

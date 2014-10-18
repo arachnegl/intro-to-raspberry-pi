@@ -1,5 +1,5 @@
-Shell 2 - Files
-***************
+Files
+*****
 
 Computers fundamentally only process 0s and 1s. In order for them to be useful we need to find ways to represent things that are relevant to us.
 
