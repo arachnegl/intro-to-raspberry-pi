@@ -75,6 +75,16 @@ Exercise
 
 Put the above into a script and run it.
 
+
+Exercise
+========
+
+'Blinking Big Ben'
+
+Make a program to communicate the time via LED.
+
+Decide which unit of time to measure. Maybe every 2 minutes.
+
 Resources
 =========
 
