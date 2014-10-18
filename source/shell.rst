@@ -29,7 +29,7 @@ You are always somewhere in the computer's filesystem. You can get lost, but its
 
 Type this::
 
-    pi@raspberrypi ~ $ li
+    pi@raspberrypi ~ $ ls 
     pi@raspberrypi ~ $
     pi@raspberrypi ~ $ ls
     Desktop  Documents  my_turtle.py  networking-lessons  ocr_pi.png  python_games  Scratch
